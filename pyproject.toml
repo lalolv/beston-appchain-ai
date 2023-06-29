@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "beston-appchain-ai"
+version = "0.1.0"
+description = ""
+authors = ["Lalo <work@lalo.im>"]
+readme = "README.md"
+packages = [{include = "beston"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+langchain = "^0.0.217"
+chainlit = "^0.4.101"
+pydantic = "^1.10.9"
+
+
+[build-system]
+requires = ["beston-core"]
+build-backend = "poetry.core.masonry.api"

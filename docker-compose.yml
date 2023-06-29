@@ -1,0 +1,9 @@
+version: '3'
+services:
+  bxs-appchain-ai:
+    image: bxs-appchain-ai:latest
+    build: ./app
+    command: chainlit run app.py
+    # volumes:
+    ports:
+      - 8000:8000

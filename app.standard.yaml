@@ -1,0 +1,18 @@
+runtime: python311 # or another supported version
+
+instance_class: F1
+
+env_variables:
+  OPENAI_API_KEY: ""
+  OPENAI_API_BASE: ""
+  OPENAI_API_VERSION: "2023-03-15-preview"
+  OPENAI_API_TYPE: "azure"
+  LANGCHAIN_TRACING: "false"
+
+entrypoint: chainlit run --port 8080 app.py
+
+handlers:
+- url: /.*
+  secure: always
+  redirect_http_response_code: 301
+  script: auto
