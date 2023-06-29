@@ -1,14 +1,32 @@
-# Welcome to Chainlit! 🚀🤖
+# 应用智链 —— 百事通 🚀🤖
 
-Hi there, Developer! 👋 We're excited to have you on board. Chainlit is a powerful tool designed to help you prototype, debug and share applications built on top of LLMs.
+能掐会算，通晓世间百事。
+博古通今，畅聊人生百态。
 
-## Useful Links 🔗
+## 超能力
 
-- **Documentation:** Get started with our comprehensive [Chainlit Documentation](https://docs.chainlit.io) 📚
-- **Discord Community:** Join our friendly [Chainlit Discord](https://discord.gg/ZThrUxbAYw) to ask questions, share your projects, and connect with other developers! 💬
+- [x] 调用搜索引擎，自主调用搜索引擎查找问题，并给出最终答案。
+- [x] 目前城市天气，帮助用户查询天气情况。
+- [x] 当前星座运势，给用户推算出今日、明日和本周的星座运势。
+- [ ] 查询快递信息
+- [ ] 今日热点新闻
+- [ ] 热门影视信息
+- [ ] 生成图片
 
-We can't wait to see what you create with Chainlit! Happy coding! 💻😊
+## 如何使用
 
-## Welcome screen
+### 星座运势
 
-To modify the welcome screen, edit the `chainlit.md` file at the root of your project. If you do not want a welcome screen, just leave this file empty.
+```text
+> 请问白羊座本周的运势如何？
+
+> 我是狮子座，请问我今日的运势怎么样？
+```
+
+### 天气情况
+
+```text
+> 请问今天北京的天气怎么样？
+
+> 我目前在上海，请问当地的气温是多少度？
+```

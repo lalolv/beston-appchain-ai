@@ -16,10 +16,10 @@ user_env = []
 
 [UI]
 # Name of the app and chatbot.
-name = "百晓生"
+name = "百事通"
 
 # Description of the app and chatbot. This is used for HTML tags.
-# description = "能掐会算，通晓世间百事。博古通今，畅聊人生百态。"
+description = "能掐会算，通晓世间百事。博古通今，畅聊人生百态。"
 
 # The default value for the expand messages settings.
 default_expand_messages = false
@@ -28,7 +28,7 @@ default_expand_messages = false
 hide_cot = false
 
 # Link to your github repo. This will add a github button in the UI's header.
-github = "https://github.com/lalolv"
+github = "https://github.com/lalolv/beston-appchain-ai"
 
 [meta]
 generated_by = "0.4.101"
