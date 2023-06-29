@@ -1,18 +1,14 @@
 from vvhan.horoscope import HoroscopeTool
 from langchain.agents import AgentType, initialize_agent
 from langchain.llms import AzureOpenAI
+from langchain.tools import DuckDuckGoSearchRun, OpenWeatherMapQueryRun
 from langchain.callbacks.streaming_stdout_final_only import FinalStreamingStdOutCallbackHandler
-# from langchain.prompts import MessagesPlaceholder
-# from langchain.memory import ConversationBufferMemory
 import chainlit as cl
 
 
 # The search tool has no async implementation, we fall back to sync
 @cl.langchain_factory(use_async=False)
 def load():
-    # Adding in memory
-    # chat_history = MessagesPlaceholder(variable_name="chat_history")
-    # memory = ConversationBufferMemory(memory_key="chat_history", return_messages=True)
     # 大模型 max_tokens = 4096
     llm = AzureOpenAI(
         deployment_name="gpt-35",
@@ -23,18 +19,16 @@ def load():
         max_retries=1,
         callbacks=[FinalStreamingStdOutCallbackHandler()])
 
-    tools = [HoroscopeTool()]
+    # Weather tool is not supported by the Azure OpenAI API
+    # weath_tool = load_tools(["openweathermap-api"], llm)
+    # Tools
+    tools = [OpenWeatherMapQueryRun(), HoroscopeTool(), DuckDuckGoSearchRun()]
+    # Return the agent
     return initialize_agent(
         tools, llm, 
         agent=AgentType.STRUCTURED_CHAT_ZERO_SHOT_REACT_DESCRIPTION, 
-        verbose=True, 
-        # memory=memory, 
-        # agent_kwargs = {
-        #     "memory_prompts": [chat_history],
-        #     "input_variables": ["input", "agent_scratchpad", "chat_history"]
-        # }
+        verbose=True
     )
-    # agent.run("处女座本周的爱情运势如何?")
 
 # @cl.langchain_run
 # async def run(agent, input):

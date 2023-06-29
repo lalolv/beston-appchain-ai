@@ -11,6 +11,8 @@ python = "^3.11"
 langchain = "^0.0.217"
 chainlit = "^0.4.101"
 pydantic = "^1.10.9"
+duckduckgo-search = "^3.8.3"
+pyowm = "^3.3.0"
 
 
 [build-system]
