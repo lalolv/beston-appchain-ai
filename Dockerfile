@@ -30,6 +30,7 @@ COPY --from=builder ${VIRTUAL_ENV} ${VIRTUAL_ENV}
 
 COPY app.py app.py
 COPY ./vvhan ./vvhan
+COPY ./regular ./regular
 COPY ./.chainlit ./.chainlit
 COPY .env chainlit.md ./
 
