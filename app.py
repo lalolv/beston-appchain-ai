@@ -1,28 +1,32 @@
 from vvhan.horoscope import HoroscopeTool
+from regular.weather import WeatherTool
+
 from langchain.agents import AgentType, initialize_agent
 from langchain.llms import AzureOpenAI
 from langchain.tools import DuckDuckGoSearchRun, OpenWeatherMapQueryRun
 from langchain.callbacks.streaming_stdout_final_only import FinalStreamingStdOutCallbackHandler
 import chainlit as cl
 
-
 # The search tool has no async implementation, we fall back to sync
 @cl.langchain_factory(use_async=False)
 def load():
+    # user session
+    # user_env = cl.user_session.get("env")
+    # user_env.get("OPENWEATHERMAP_API_KEY")
     # 大模型 max_tokens = 4096
     llm = AzureOpenAI(
         deployment_name="gpt-35",
         model_name="gpt-35-turbo",
         temperature=0,
         streaming=True,
-        max_tokens=1024,
+        max_tokens=2048,
         max_retries=1,
         callbacks=[FinalStreamingStdOutCallbackHandler()])
 
-    # Weather tool is not supported by the Azure OpenAI API
-    # weath_tool = load_tools(["openweathermap-api"], llm)
     # Tools
-    tools = [OpenWeatherMapQueryRun(), HoroscopeTool(), DuckDuckGoSearchRun()]
+    tools = [
+        WeatherTool(), 
+        HoroscopeTool(), DuckDuckGoSearchRun()]
     # Return the agent
     return initialize_agent(
         tools, llm, 

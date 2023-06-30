@@ -51,17 +51,17 @@ class HoroscopeTool(BaseTool):
         data = result["data"]
         fortunetext = data["fortunetext"]
         fortune_all = fortunetext["all"]
-        # fortune_love = fortunetext["love"]
-        # fortune_work = fortunetext["work"]
-        # fortune_money = fortunetext["money"]
-        # fortune_health = fortunetext["health"]
-        # return (
-        #     f"综合运势: {fortune_all}"
-        #     f"爱情运势: {fortune_love}"
-        #     f"学业工作: {fortune_work}"
-        #     f"财富运势: {fortune_money}"
-        #     f"健康运势: {fortune_health}"
-        # )
+        fortune_love = fortunetext["love"]
+        fortune_work = fortunetext["work"]
+        fortune_money = fortunetext["money"]
+        fortune_health = fortunetext["health"]
+        return (
+            f"综合运势: {fortune_all}"
+            f"爱情运势: {fortune_love}"
+            f"学业工作: {fortune_work}"
+            f"财富运势: {fortune_money}"
+            f"健康运势: {fortune_health}"
+        )
         return fortune_all
 
     def _run(
