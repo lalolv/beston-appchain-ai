@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "beston-appchain-ai"
-version = "0.1.0"
+version = "0.1.1"
 description = ""
 authors = ["Lalo <work@lalo.im>"]
 readme = "README.md"
@@ -8,8 +8,8 @@ packages = [{include = "beston"}]
 
 [tool.poetry.dependencies]
 python = "^3.11"
-langchain = "^0.0.217"
-chainlit = "^0.4.101"
+langchain = "^0.0.228"
+chainlit = "^0.5.1"
 pydantic = "^1.10.9"
 duckduckgo-search = "^3.8.3"
 pyowm = "^3.3.0"
